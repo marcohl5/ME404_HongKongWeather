@@ -3,7 +3,7 @@ import os
 
 
 def process_qc():
-    dir_path = "original-data/2024/"
+    dir_path = "original-data/2023/"
     file_names = ["temp",
                  "maxt",
                  "mint",
@@ -23,11 +23,11 @@ def process_qc():
         df = pd.read_csv(file_path)
 
         # Ensure "obstime" and "station_id" columns exist
-        if not {'obstime', 'station_id'}.issubset(df.columns):
+        if not {"obstime", "station_id"}.issubset(df.columns):
             raise ValueError(f"Missing required columns in {file}.csv")
 
         # Filter for station_id == 6133
-        df = df[df["station_id"] == 6133]
+        df = df[df["station_id"] == 6087]
         df = df.drop(["station_id"], axis=1)
 
         # Save as separate DF
@@ -46,13 +46,13 @@ def process_qc():
 
     # Separate time into date, and time separately
 
-    df_merged['date'] = pd.to_datetime(df_merged['obstime']).dt.strftime('%Y/%m/%d')
-    df_merged['time'] = pd.to_datetime(df_merged['obstime']).dt.strftime('%H:%M:%S')
+    df_merged["date"] = pd.to_datetime(df_merged["obstime"]).dt.strftime("%Y/%m/%d")
+    df_merged["time"] = pd.to_datetime(df_merged["obstime"]).dt.strftime("%H:%M:%S")
 
     df_merged = df_merged[["date", "time"] + [col for col in df_merged.columns if col not in ["date", "time"]]]
 
     # Dropping the original datetime column
-    df_merged = df_merged.drop(columns=['obstime'])
+    df_merged = df_merged.drop(columns=["obstime"])
 
     print(df_merged["Air Temperature in degree C"].value_counts().sum())
 
@@ -60,7 +60,7 @@ def process_qc():
 
 
 def save_data(df):
-    df.to_csv("processed-data/processed_2024_qc.csv")
+    df.to_csv("processed-data/processed_2023_qc.csv")
     print("Save complete")
 
 
