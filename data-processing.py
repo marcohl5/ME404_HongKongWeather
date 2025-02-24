@@ -52,7 +52,7 @@ def process_qc():
     df_merged = df_merged[["date", "time"] + [col for col in df_merged.columns if col not in ["date", "time"]]]
 
     # Dropping the original datetime column
-    df_merged = df_merged.drop(columns=["obstime"])
+    # df_merged = df_merged.drop(columns=["obstime"])
 
     print(df_merged["Air Temperature in degree C"].value_counts().sum())
 
