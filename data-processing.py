@@ -26,7 +26,7 @@ def process_qc():
         if not {"obstime", "station_id"}.issubset(df.columns):
             raise ValueError(f"Missing required columns in {file}.csv")
 
-        # Filter for station_id == 6087
+        # Filter for station_id == 6087 (Chosen location)
         df = df[df["station_id"] == 6087]
         df = df.drop(["station_id"], axis=1)
 
