@@ -31,7 +31,7 @@ def process_qc():
         df = df.drop(["station_id"], axis=1)
 
         # Save as separate DF
-        df.to_csv(f"processed-data/{file}_filt.csv")
+        df.to_csv(f"processed-data/2023/{file}_filt.csv")
         print(f"{file} saved")
 
         # Merge on "obstime"
@@ -60,7 +60,7 @@ def process_qc():
 
 
 def save_data(df):
-    df.to_csv("processed-data/processed_2023_qc.csv")
+    df.to_csv("processed-data/2023/processed_2023_qc.csv")
     print("Save complete")
 
 
