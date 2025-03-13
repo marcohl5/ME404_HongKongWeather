@@ -37,6 +37,6 @@ The notebook can also be viewed [here](https://nbviewer.org/github/marcohl5/ME40
 
 
 ### Pre/Postprocessing for the Energy System Model
-Minor preprocessing and postprocessing steps for the model was conducted in [pre-postprocessing-model](https://github.com/marcohl5/ME404_HongKongWeather/blob/main/pre-postprocessing-model.ipynb).
+Minor preprocessing and postprocessing steps for the model was conducted in [pre-postprocessing-model.ipynb](https://github.com/marcohl5/ME404_HongKongWeather/blob/main/pre-postprocessing-model.ipynb).
 
 
